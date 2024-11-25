@@ -84,6 +84,11 @@ namespace CalculatorProject
 
                 Console.WriteLine("\n"); // Friendly linespacing
             }
+
+            // call to close the JSON writer before return
+            calculator.Finish();
+
+            return;
         }
     }
 }
