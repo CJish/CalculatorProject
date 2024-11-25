@@ -15,7 +15,7 @@ namespace CalculatorProject
             {
                 // Declare variables and set to empty.
                 // Use nullable types (with ?) to match type of System.Console.Readline
-                string? numInput1 = "";
+                string? numInput1 = ""; // string? means that it can be null; different from empty in that a null value does not have a memory address allotted to it.
                 string? numInput2 = "";
                 double result = 0;
 
