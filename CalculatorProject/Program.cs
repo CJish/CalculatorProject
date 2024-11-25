@@ -1,6 +1,9 @@
 ﻿using System.Text.RegularExpressions;
+using CalculatorLibrary;
 
 namespace CalculatorProject
+
+    // virtual keyword for a class function allows a child class to keep the function as-is or modify the function.
 {
     internal class Program
     {
@@ -10,6 +13,8 @@ namespace CalculatorProject
             // Display title as the C# console calculator app.
             Console.WriteLine("Console Calculator in C#\r");
             Console.WriteLine("--------------------------");
+
+            Calculator calculator = new Calculator();
 
             while (!endApp)
             {
@@ -59,7 +64,7 @@ namespace CalculatorProject
                 {
                     try
                     {
-                        result = Calculator.DoOperation(cleanNum1, cleanNum2, op);
+                        result = calculator.DoOperation(cleanNum1, cleanNum2, op);
                         if (double.IsNaN(result))
                         {
                             Console.WriteLine("This operation will result in a mathermatical error.\n");
