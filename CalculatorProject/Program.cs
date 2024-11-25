@@ -31,11 +31,12 @@ namespace CalculatorProject
                 double cleanNum1 = 0;
                 while(!double.TryParse(numInput1, out cleanNum1))
                 {
+                    // handling incorrect user input by refusing to accept the input and telling the user about it
                     Console.WriteLine("This is not a valid input. Please enter a numeric value: ");
                     numInput1 = Console.ReadLine();
                 }
 
-                // Ask the user to type the second number.
+                // Ask the user to type the second number. This time, if there's an error, we don't tell them about it, we just prompt them for the number again
                 Console.WriteLine("Type another number, and the press Enter: ");
                 numInput2 = Console.ReadLine();
 
@@ -59,12 +60,14 @@ namespace CalculatorProject
                 // Validate input is not null, and matches the pattern
                 if (op == null || ! Regex.IsMatch(op, "[a|s|m|d]"))
                 {
+                    // tells the user they didn't enter a or s or m or d and bails on the program, pushing it to the end where the try again dialogue is presented
                     Console.WriteLine("Error: Unrecognized Input.");
                 } else
                 {
                     try
                     {
                         result = calculator.DoOperation(cleanNum1, cleanNum2, op);
+                        // 
                         if (double.IsNaN(result))
                         {
                             Console.WriteLine("This operation will result in a mathermatical error.\n");
