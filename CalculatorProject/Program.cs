@@ -53,6 +53,7 @@ namespace CalculatorProject
                 Console.WriteLine("\ts - Subtract");
                 Console.WriteLine("\tm - Multiply");
                 Console.WriteLine("\td - Divide");
+                // added in step 3
                 Console.WriteLine("\tp - to raise the first number to the power of the second numer");
                 Console.WriteLine("Your option?");
 

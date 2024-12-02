@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel;
+using System.Diagnostics;
 using Newtonsoft.Json;
 
 namespace CalculatorLibrary
@@ -52,9 +53,14 @@ namespace CalculatorLibrary
                         writer.WriteValue("Divide");
                     }
                     break;
+                // added in step 3
                 case "p":
                     result = Math.Pow(num1, num2);
                     writer.WriteValue("Power");
+                    break;
+                case "b":
+                    result = 0;
+                    writer.WriteValue("Test input");
                     break;
                 // Return text for an incorrect option entry.
                 default:
