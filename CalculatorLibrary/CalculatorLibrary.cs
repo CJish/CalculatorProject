@@ -5,7 +5,7 @@ namespace CalculatorLibrary
 {
     public class Calculator
     {
-        JsonWriter writer;
+        JsonWriter writer; // Everything "writer.blahblahblah" is for writing to the JSON log file.
 
         public Calculator()
         {
@@ -51,6 +51,10 @@ namespace CalculatorLibrary
                         result = num1 / num2;
                         writer.WriteValue("Divide");
                     }
+                    break;
+                case "p":
+                    result = Math.Pow(num1, num2);
+                    writer.WriteValue("Power");
                     break;
                 // Return text for an incorrect option entry.
                 default:

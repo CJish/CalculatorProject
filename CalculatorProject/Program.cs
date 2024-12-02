@@ -53,12 +53,13 @@ namespace CalculatorProject
                 Console.WriteLine("\ts - Subtract");
                 Console.WriteLine("\tm - Multiply");
                 Console.WriteLine("\td - Divide");
+                Console.WriteLine("\tp - to raise the first number to the power of the second numer");
                 Console.WriteLine("Your option?");
 
                 string? op = Console.ReadLine();
 
                 // Validate input is not null, and matches the pattern
-                if (op == null || ! Regex.IsMatch(op, "[a|s|m|d]"))
+                if (op == null || ! Regex.IsMatch(op, "[a|s|m|d|p]"))
                 {
                     // tells the user they didn't enter a or s or m or d and bails on the program, pushing it to the end where the try again dialogue is presented
                     Console.WriteLine("Error: Unrecognized Input.");
@@ -67,7 +68,7 @@ namespace CalculatorProject
                     try
                     {
                         result = calculator.DoOperation(cleanNum1, cleanNum2, op);
-                        // 
+                        // if, somehow, we get a NaN as a result, this will be displayed
                         if (double.IsNaN(result))
                         {
                             Console.WriteLine("This operation will result in a mathermatical error.\n");
@@ -75,6 +76,7 @@ namespace CalculatorProject
                         else Console.WriteLine("Your result: {0:0.##}\n", result);
                     }
                     catch (Exception e)
+                    // This is the error that is presented if we try to divide by zero, for example
                     {
                         Console.WriteLine("Oh no! An exception occurred trying to do the math.\n - Details: " + e.Message);
                     }
